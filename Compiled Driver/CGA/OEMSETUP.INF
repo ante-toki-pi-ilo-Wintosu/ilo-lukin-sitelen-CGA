@@ -1,0 +1,37 @@
+; Microsoft Windows Driver Library
+; CGA Display Driver Disk
+; Copyright 1992 Microsoft Corporation
+; ---------------------------------------------------------------
+
+[data]
+    Version="3.10" 
+
+[disks]
+    t =.,  "CGA Display Driver Disk", diskt
+
+[display]
+;profile = driver,         Description of driver,                       resolution,    286 grabber,    logo code,     VDD,           386grabber,   ega.sys,   logo data,     optional work section
+cga      = t:cga.drv,      "CGA",                                       "200,96,48",   t:cga.2gr,      t:cgalogo.lgo, t:vddcga.386,  t:cga.3gr,,              t:cgalogo.rle
+cgac      = t:cgac.drv,      "CGA Composite (By Digi-Space Prods.)",                                       "200,96,48",   t:cga.2gr,      t:cgalogo.lgo, t:vddcga.386,  t:cga.3gr,,              t:cgalogo.rle
+
+[CGA.3GR]
+t:CGA40WOA.FON,t:CGA40850.FON
+t:CGA80WOA.FON,t:CGA80850.FON
+
+[sysfonts]
+t:cgasys.fon,"CGA (640x200) resolution System Font", "200,96,48"
+
+[fixedfonts]
+t:cgafix.fon,"CGA (640x200) resolution Fixed System Font", "200,96,48"
+
+[oemfonts]
+t:cgaoem.fon,"CGA (640x200) resolution Terminal Font (USA/Europe)", "200,96,48",1
+
+[fonts]
+t:SSERIFA.FON, "MS Sans Serif 8,10,12,14,18,24 (CGA res)", "200,96,48"
+t:COURA.FON,   "Courier 10,12,15 (CGA res)", "200,96,48"
+t:SERIFA.FON,  "MS Serif 8,10,12,14,18,24 (CGA res)", "200,96,48"
+t:SYMBOLA.FON, "Symbol 8,10,12,14,18,24 (CGA res)", "200,96,48"
+t:ROMAN.FON,   "Roman (All res)",  "CONTINUOUSSCALING"
+t:SCRIPT.FON,  "Script (All res)", "CONTINUOUSSCALING"
+t:MODERN.FON,  "Modern (All res)", "CONTINUOUSSCALING"
